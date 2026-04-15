@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Documento Procesado — Sistema Fénix</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    :root {
+      --naranja: #FF6B00;
+      --texto: #1A1A1A;
+      --suave: #555;
+      --borde: #E5E5E5;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Georgia', serif;
+      background: #FAFAFA;
+      color: var(--texto);
+      padding: 40px 20px;
+      line-height: 1.75;
+    }
+    .doc-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+    .doc-header {
+      background: var(--naranja);
+      color: white;
+      padding: 32px 40px;
+    }
+    .doc-header .badge {
+      background: rgba(255,255,255,0.2);
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: sans-serif;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .doc-header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      font-family: sans-serif;
+      margin-bottom: 6px;
+    }
+    .doc-header p {
+      opacity: 0.85;
+      font-size: 14px;
+      font-family: sans-serif;
+    }
+    .doc-body {
+      padding: 40px;
+    }
+    .toc {
+      background: #FFF8F0;
+      border: 1px solid #FFD0A0;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 36px;
+    }
+    .toc h2 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--naranja);
+      font-family: sans-serif;
+      margin-bottom: 12px;
+    }
+    .toc ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .toc ul li {
+      font-size: 14px;
+      font-family: sans-serif;
+      color: var(--suave);
+    }
+    .toc ul li a {
+      color: var(--naranja);
+      text-decoration: none;
+    }
+    .toc ul li a:hover { text-decoration: underline; }
+
+    h2.unit-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      font-family: sans-serif;
+      border-left: 4px solid var(--naranja);
+      padding-left: 14px;
+      margin: 36px 0 16px;
+      scroll-margin-top: 24px;
+    }
+    h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: sans-serif;
+      color: var(--texto);
+      margin: 24px 0 10px;
+    }
+    p {
+      font-size: 15px;
+      color: var(--suave);
+      margin-bottom: 14px;
+    }
+    strong { color: var(--texto); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+      font-family: sans-serif;
+      font-size: 13px;
+    }
+    thead tr { background: #F5F5F5; }
+    th, td {
+      padding: 10px 14px;
+      border: 1px solid var(--borde);
+      text-align: left;
+    }
+    th { font-weight: 700; color: var(--texto); }
+
+    .callout {
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-family: sans-serif;
+      font-size: 14px;
+    }
+    .callout.examen {
+      background: #FFF3E0;
+      border: 1px solid #FFCCAA;
+      color: #8B4000;
+    }
+    .callout.concepto {
+      background: #E8F5E9;
+      border: 1px solid #A5D6A7;
+      color: #1B5E20;
+    }
+    .callout.vinculo {
+      background: #EDE7F6;
+      border: 1px solid #CE93D8;
+      color: #4A148C;
+    }
+
+    .auto-eval {
+      background: #F5F5F5;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .auto-eval h3 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--naranja);
+      margin-bottom: 12px;
+    }
+    .auto-eval ol {
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .auto-eval ol li {
+      font-size: 14px;
+      color: var(--suave);
+      font-family: sans-serif;
+    }
+
+    .doc-footer {
+      background: #F9F9F9;
+      border-top: 1px solid var(--borde);
+      padding: 20px 40px;
+      font-size: 12px;
+      color: #AAA;
+      font-family: sans-serif;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="doc-wrapper">
+  <div class="doc-header">
+    <div class="badge">🔥 Sistema Fénix — Documento Procesado</div>
+    <h1>Química Orgánica II</h1>
+    <p>4 unidades · 205 páginas procesadas · Coherencia global aplicada</p>
+  </div>
+
+  <div class="doc-body">
+
+    <!-- ÍNDICE -->
+    <div class="toc">
+      <h2>Índice de contenidos</h2>
+      <ul>
+        <li><a href="#u1">Unidad 1: Nomenclatura IUPAC</a></li>
+        <li><a href="#u2">Unidad 2: Grupos Funcionales</a></li>
+        <li><a href="#u3">Unidad 3: Reacciones Orgánicas</a></li>
+        <li><a href="#u4">Unidad 4: Síntesis Orgánica</a></li>
+      </ul>
+    </div>
+
+    <!-- UNIDAD 1 -->
+    <h2 class="unit-title" id="u1">Unidad 1: Nomenclatura IUPAC</h2>
+
+    <div class="callout concepto">
+      <strong>Concepto central:</strong> La nomenclatura IUPAC es el sistema estándar internacional para nombrar compuestos orgánicos. Dominarla es indispensable para leer e interpretar las reacciones de las unidades siguientes.
+    </div>
+
+    <h3>Reglas base para alcanos</h3>
+    <p>La cadena principal es la más larga que contiene el mayor número de carbonos. La numeración comienza desde el extremo más cercano al primer sustituyente.</p>
+
+    <table>
+      <thead>
+        <tr><th>N° Carbonos</th><th>Prefijo</th><th>Nombre base</th><th>Fórmula</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Met-</td><td>Metano</td><td>CH₄</td></tr>
+        <tr><td>2</td><td>Et-</td><td>Etano</td><td>C₂H₆</td></tr>
+        <tr><td>3</td><td>Prop-</td><td>Propano</td><td>C₃H₈</td></tr>
+        <tr><td>4</td><td>But-</td><td>Butano</td><td>C₄H₁₀</td></tr>
+        <tr><td>5</td><td>Pent-</td><td>Pentano</td><td>C₅H₁₂</td></tr>
+        <tr><td>6</td><td>Hex-</td><td>Hexano</td><td>C₆H₁₄</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout examen">
+      <strong>⚡ Punto de examen frecuente:</strong> En caso de empate al elegir cadena principal (mismo número de carbonos), se elige la que tiene más sustituyentes. Ante otro empate, se aplica orden alfabético.
+    </div>
+
+    <div class="auto-eval">
+      <h3>Autoevaluación U1</h3>
+      <ol>
+        <li>¿Cómo se determina la cadena principal en un alcano ramificado?</li>
+        <li>Nombrá el siguiente compuesto: CH₃-CH(CH₃)-CH₂-CH₃</li>
+        <li>¿Qué sufijo indica la presencia de un doble enlace?</li>
+      </ol>
+    </div>
+
+    <!-- UNIDAD 2 -->
+    <h2 class="unit-title" id="u2">Unidad 2: Grupos Funcionales</h2>
+
+    <div class="callout vinculo">
+      <strong>🔗 Conexión con U1:</strong> Los grupos funcionales se nombran según las reglas IUPAC usando sufijos específicos que reemplazan o se agregan al nombre base aprendido en la Unidad 1.
+    </div>
+
+    <h3>Tabla de grupos funcionales principales</h3>
+    <table>
+      <thead>
+        <tr><th>Grupo</th><th>Fórmula</th><th>Sufijo IUPAC</th><th>Reactividad clave</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Alcohol</td><td>–OH</td><td>-ol</td><td>Oxidación → Aldehído/Cetona</td></tr>
+        <tr><td>Aldehído</td><td>–CHO</td><td>-al</td><td>Oxidación → Ácido carboxílico</td></tr>
+        <tr><td>Cetona</td><td>C=O</td><td>-ona</td><td>Reducción → Alcohol 2°</td></tr>
+        <tr><td>Ácido carboxílico</td><td>–COOH</td><td>-oico</td><td>Esterificación con alcoholes</td></tr>
+        <tr><td>Amina</td><td>–NH₂</td><td>-amina</td><td>Base débil, reacciones con ácidos</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout examen">
+      <strong>⚡ Punto de examen frecuente:</strong> La jerarquía de grupos funcionales determina cuál define el nombre principal. Orden: ácido carboxílico > éster > aldehído > cetona > alcohol > amina.
+    </div>
+
+    <!-- UNIDAD 3 -->
+    <h2 class="unit-title" id="u3">Unidad 3: Reacciones Orgánicas</h2>
+
+    <div class="callout vinculo">
+      <strong>🔗 Conexión con U2:</strong> Cada reacción de esta unidad parte de los grupos funcionales identificados en la Unidad 2. Conocer el grupo funcional permite predecir el tipo de reacción posible.
+    </div>
+
+    <h3>Reacciones de oxidación-reducción</h3>
+    <p>Las reacciones redox en química orgánica implican cambios en el estado de oxidación del carbono. Un carbono se oxida cuando pierde H o gana O; se reduce cuando gana H o pierde O.</p>
+
+    <table>
+      <thead>
+        <tr><th>Reacción</th><th>Reactivo</th><th>Producto</th><th>Agente</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Oxidación suave</td><td>Alcohol 1°</td><td>Aldehído</td><td>PCC / CrO₃</td></tr>
+        <tr><td>Oxidación fuerte</td><td>Alcohol 1°</td><td>Ácido carboxílico</td><td>KMnO₄</td></tr>
+        <tr><td>Oxidación</td><td>Alcohol 2°</td><td>Cetona</td><td>K₂Cr₂O₇</td></tr>
+        <tr><td>Reducción</td><td>Aldehído/Cetona</td><td>Alcohol</td><td>NaBH₄ / LiAlH₄</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout examen">
+      <strong>⚡ Punto de examen frecuente:</strong> Los alcoholes terciarios NO se pueden oxidar con agentes suaves (no tienen H en el carbono con –OH). Este es un error clásico en parciales.
+    </div>
+
+    <!-- UNIDAD 4 -->
+    <h2 class="unit-title" id="u4">Unidad 4: Síntesis Orgánica</h2>
+
+    <div class="callout vinculo">
+      <strong>🔗 Conexión global:</strong> La síntesis integra todo lo visto: aplicás nomenclatura (U1), identificás grupos funcionales (U2) y seleccionás reacciones (U3) para diseñar una ruta sintética.
+    </div>
+
+    <h3>Estrategia de análisis retrosintético</h3>
+    <p>Ante una molécula objetivo, trabajamos hacia atrás: ¿qué precursor + reacción genera este producto? Este proceso se repite hasta llegar a materiales de partida accesibles.</p>
+
+    <div class="callout concepto">
+      <strong>Metodología Fénix para síntesis:</strong> 1) Identificar el grupo funcional del producto. 2) Buscar en tabla de reacciones cuál lo genera. 3) Identificar el precursor. 4) Verificar condiciones de reacción. 5) Escribir la ruta completa.
+    </div>
+
+    <div class="auto-eval">
+      <h3>Autoevaluación Final — Integración</h3>
+      <ol>
+        <li>Partiendo de etanol, describí la ruta para obtener ácido acético (indicá agentes y condiciones).</li>
+        <li>¿Por qué no podés oxidar un alcohol terciario con PCC?</li>
+        <li>Nombrá por IUPAC el producto de la esterificación entre ácido propanoico y metanol.</li>
+        <li>¿Qué diferencia hay entre reducir un aldehído y reducir una cetona? ¿Qué productos se forman?</li>
+      </ol>
+    </div>
+
+  </div><!-- /doc-body -->
+
+  <div class="doc-footer">
+    🔥 Procesado con Sistema Fénix · Este documento fue generado con coherencia global entre las 4 unidades · +54 264 6623005
+  </div>
+</div>
+</body>
+</html>
